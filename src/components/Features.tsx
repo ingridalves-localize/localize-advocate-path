@@ -36,9 +36,7 @@ const Features = () => {
   return <section className="py-20 bg-white" id="solucoes">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4 text-gold bg-gold-light">
-            Por que escolher a Localize?
-          </Badge>
+          
           <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">
             Tecnologia de Ponta para
             <span className="text-gold block">Investigação Patrimonial</span>
