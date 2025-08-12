@@ -33,44 +33,6 @@ const features = [{
   highlight: "24/7"
 }];
 const Features = () => {
-  return <section className="py-20 bg-white" id="solucoes">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          
-          <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">
-            Tecnologia de Ponta para
-            <span className="text-gold block">Investigação Patrimonial</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Combinamos inteligência artificial, big data e expertise jurídica para 
-            entregar os melhores resultados em investigação de ativos.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-          const Icon = feature.icon;
-          return <Card key={index} className="border-0 shadow-card hover:shadow-gold transition-all duration-500 group">
-                <CardHeader className="text-center pb-4">
-                  <div className="mx-auto mb-4 p-4 bg-gradient-primary rounded-2xl w-fit group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="h-8 w-8 text-navy" />
-                  </div>
-                  <Badge variant="outline" className="text-xs mb-2 text-gold border-gold">
-                    {feature.highlight}
-                  </Badge>
-                  <CardTitle className="text-xl text-navy">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <CardDescription className="text-gray-600">
-                    {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>;
-        })}
-        </div>
-
-        
-      </div>
-    </section>;
+  return;
 };
 export default Features;
