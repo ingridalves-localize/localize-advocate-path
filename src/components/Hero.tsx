@@ -14,7 +14,7 @@ const Hero = () => {
               <img 
                 src="/lovable-uploads/29baf211-1690-41fb-a006-0f6619e1ab63.png" 
                 alt="Logo Digital - Leão dourado" 
-                className="w-24 h-24 lg:w-32 lg:h-32 object-contain"
+                className="w-32 h-32 lg:w-40 lg:h-40 object-contain"
               />
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">

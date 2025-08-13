@@ -15,13 +15,13 @@ const Index = () => {
       <Footer />
       
       {/* Logo Section */}
-      <section className="py-16 bg-navy">
+      <section className="py-8 bg-navy">
         <div className="container mx-auto px-6 text-center">
           <div className="flex justify-center">
             <img 
               src="/lovable-uploads/dda72357-f260-44c1-b1aa-e45ae500ff72.png" 
               alt="Logo" 
-              className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 object-contain transition-all duration-300 hover:scale-105"
+              className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain transition-all duration-300 hover:scale-105"
             />
           </div>
         </div>
