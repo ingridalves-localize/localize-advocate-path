@@ -39,9 +39,9 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --gold: 45 100% 51%;
-    --gold-dark: 42 100% 45%;
-    --gold-light: 48 100% 88%;
+    --gold: 38 89% 65%;
+    --gold-dark: 38 89% 55%;
+    --gold-light: 38 89% 85%;
     --navy: 220 30% 16%;
     --navy-light: 220 20% 28%;
     --gray-50: 220 13% 98%;
