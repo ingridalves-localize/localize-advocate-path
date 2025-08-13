@@ -21,9 +21,9 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex space-x-6 text-sm text-gray-300 mb-4 md:mb-0">
-            <a href="#" className="hover:text-gold transition-colors">Política de Privacidade</a>
-            <a href="#" className="hover:text-gold transition-colors">Termos de Uso</a>
-            <a href="#" className="hover:text-gold transition-colors">LGPD</a>
+            
+            
+            
           </div>
           <p className="text-sm text-gray-400">
             © 2024 Localize Digital. Todos os direitos reservados.
