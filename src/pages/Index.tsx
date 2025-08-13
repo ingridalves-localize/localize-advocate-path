@@ -4,6 +4,7 @@ import Features from "@/components/Features";
 import InvestigationTrail from "@/components/InvestigationTrail";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
+import ClientLogos from "@/components/ClientLogos";
 
 const Index = () => {
   return (
@@ -12,6 +13,17 @@ const Index = () => {
       <Hero />
       <Features />
       <InvestigationTrail />
+      
+      {/* Client Logos Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-navy mb-8">
+            Clientes que confiam em nossos serviços
+          </h2>
+          <ClientLogos />
+        </div>
+      </section>
+      
       <Footer />
       
       {/* Logo Section */}

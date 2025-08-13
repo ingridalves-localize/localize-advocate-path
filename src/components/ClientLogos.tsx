@@ -114,7 +114,11 @@ const ClientLogos = () => {
           <CarouselContent className="-ml-4">
             {row.map((logo, index) => <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5">
                 <div className="flex items-center justify-center p-4 h-24 bg-white rounded-lg shadow-sm border">
-                  
+                  <img 
+                    src={logo.src} 
+                    alt={logo.name} 
+                    className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  />
                 </div>
               </CarouselItem>)}
           </CarouselContent>
