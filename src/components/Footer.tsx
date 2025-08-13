@@ -5,7 +5,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-3 mb-6">
-              
+              <img 
+                src="/lovable-uploads/9f7e0379-b04c-4e26-a349-8b315920d052.png" 
+                alt="Localize Digital Logo" 
+                className="w-12 h-12"
+              />
               <div>
                 <h3 className="text-xl font-bold">Localize</h3>
                 <p className="text-sm text-gold">Digital</p>
