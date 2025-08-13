@@ -23,29 +23,7 @@ Automação avançada, IA e inteligência investigativa agora ao seu alcance.</p
               </Button>
               
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="flex items-center space-x-3">
-                <Shield className="h-8 w-8 text-gold" />
-                <div>
-                  <p className="font-semibold">100% Seguro</p>
-                  <p className="text-sm text-gray-300">Dados protegidos</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Target className="h-8 w-8 text-gold" />
-                <div>
-                  <p className="font-semibold">Assertivo</p>
-                  <p className="text-sm text-gray-300">Resultados precisos</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Zap className="h-8 w-8 text-gold" />
-                <div>
-                  <p className="font-semibold">Rápido</p>
-                  <p className="text-sm text-gray-300">Resultados em minutos</p>
-                </div>
-              </div>
-            </div>
+            
           </div>
           <div className="relative">
             <div id="cadastro" className="bg-card rounded-2xl shadow-card p-8 backdrop-blur supports-[backdrop-filter]:bg-card/80">
@@ -93,9 +71,7 @@ Automação avançada, IA e inteligência investigativa agora ao seu alcance.</p
                     <option>Acima de R$ 200.000,00</option>
                   </select>
                 </div>
-                <Button variant="gold" className="w-full mt-6 hover:scale-105 transition-transform" size="lg">
-                  Solicitar Acesso à Plataforma
-                </Button>
+                <Button variant="gold" className="w-full mt-6 hover:scale-105 transition-transform" size="lg">Finalizar Cadastro</Button>
               </form>
               <p className="text-xs text-gray-500 mt-4 text-center">
                 Seus dados estão protegidos e serão utilizados apenas para contato comercial.
