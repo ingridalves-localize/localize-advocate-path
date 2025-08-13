@@ -83,20 +83,20 @@ const InvestigationTrail = () => {
           {statistics.map((stat) => {
             const Icon = stat.icon;
             return (
-              <Card key={stat.id} className="relative overflow-hidden hover:shadow-lg transition-shadow text-center">
-                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${stat.color}`} />
-                <CardHeader className="pb-4">
-                  <div className="flex justify-center mb-4">
-                    <div className={`p-3 rounded-full bg-gradient-to-r ${stat.color}`}>
-                      <Icon className="h-8 w-8 text-white" />
+              <Card key={stat.id} className="relative overflow-hidden hover:shadow-md transition-shadow text-center">
+                <div className={`absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r ${stat.color}`} />
+                <CardHeader className="pb-2 pt-4">
+                  <div className="flex justify-center mb-2">
+                    <div className={`p-2 rounded-full bg-gradient-to-r ${stat.color}`}>
+                      <Icon className="h-5 w-5 text-white" />
                     </div>
                   </div>
-                  <CardTitle className="text-3xl font-bold text-foreground mb-2">
+                  <CardTitle className="text-2xl font-bold text-foreground mb-1">
                     {stat.value}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-sm font-medium text-muted-foreground">
+                <CardContent className="pt-0 pb-4">
+                  <p className="text-xs font-medium text-muted-foreground leading-tight">
                     {stat.label}
                   </p>
                 </CardContent>
