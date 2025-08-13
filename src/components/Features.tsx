@@ -33,21 +33,15 @@ const features = [{
   highlight: "24/7"
 }];
 const Features = () => {
-  return (
-    <section className="py-20 bg-background">
+  return <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Recursos Avançados
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tecnologia de ponta para investigação patrimonial eficiente
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">+ de 5.000 Clientes acelerados por nossas soluções</h2>
+          
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <Card key={index} className="border-border hover:shadow-lg transition-shadow">
+          {features.map((feature, index) => <Card key={index} className="border-border hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-center justify-between mb-4">
                   <feature.icon className="w-8 h-8 text-primary" />
@@ -62,11 +56,9 @@ const Features = () => {
                   {feature.description}
                 </CardDescription>
               </CardContent>
-            </Card>
-          ))}
+            </Card>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
 export default Features;
