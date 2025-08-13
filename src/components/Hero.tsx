@@ -10,9 +10,16 @@ const Hero = () => {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
+            <div className="mb-6 flex justify-center lg:justify-start">
+              <img 
+                src="/lovable-uploads/29baf211-1690-41fb-a006-0f6619e1ab63.png" 
+                alt="Logo Digital - Leão dourado" 
+                className="w-24 h-24 lg:w-32 lg:h-32 object-contain"
+              />
+            </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              Localize Ativos e Bens de
-              <span className="text-gold block">Devedores</span>
+              Localize Bens e Ativos dos
+              <span className="text-gold block">devedores</span>
             </h1>
             <p className="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed">Leve seu escritório ao próximo nível com tecnologias antes restritas à elite corporativa.
 
