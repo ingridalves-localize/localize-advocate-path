@@ -33,37 +33,6 @@ const features = [{
   highlight: "24/7"
 }];
 const Features = () => {
-  return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-primary mb-4">Tecnologia de Ponta</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ferramentas avançadas para investigação patrimonial com resultados precisos e seguros
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <Card key={index} className="border-border hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-4">
-                  <feature.icon className="h-8 w-8 text-primary" />
-                  <Badge variant="outline" className="text-xs">
-                    {feature.highlight}
-                  </Badge>
-                </div>
-                <CardTitle className="text-xl">{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">
-                  {feature.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return;
 };
 export default Features;
