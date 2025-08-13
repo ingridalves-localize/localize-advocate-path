@@ -10,11 +10,11 @@ const Hero = () => {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
-            <div className="mb-6 flex justify-center lg:justify-start">
+            <div className="mb-8 flex justify-center lg:justify-start">
               <img 
                 src="/lovable-uploads/29baf211-1690-41fb-a006-0f6619e1ab63.png" 
                 alt="Logo Digital - Leão dourado" 
-                className="w-32 h-32 lg:w-40 lg:h-40 object-contain"
+                className="w-48 h-48 lg:w-64 lg:h-64 object-contain"
               />
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
