@@ -4,16 +4,12 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center mb-6">
               <img 
                 src="/lovable-uploads/9f7e0379-b04c-4e26-a349-8b315920d052.png" 
                 alt="Localize Digital Logo" 
-                className="w-12 h-12"
+                className="w-16 h-16"
               />
-              <div>
-                <h3 className="text-xl font-bold">Localize</h3>
-                <p className="text-sm text-gold">Digital</p>
-              </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">Leve seu escritório ao próximo nível com tecnologias antes restritas à elite corporativa. Automação avançada, IA e inteligência investigativa agora ao seu alcance.</p>
           </div>
