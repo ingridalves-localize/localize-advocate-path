@@ -35,6 +35,51 @@ const investigationSteps = [{
   color: "from-purple-500 to-purple-600"
 }];
 const InvestigationTrail = () => {
-  return;
+  return (
+    <section className="py-20 bg-muted/30">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-primary mb-4">Trilha de Investigação Guiada</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Metodologia estruturada em 4 etapas para maximizar a eficácia na localização de ativos
+          </p>
+        </div>
+        <div className="space-y-8">
+          {investigationSteps.map((step, index) => (
+            <Card key={step.id} className="border-border hover:shadow-lg transition-all duration-300">
+              <CardHeader>
+                <div className="flex items-start gap-6">
+                  <div className={`rounded-full p-4 bg-gradient-to-r ${step.color} text-white`}>
+                    <step.icon className="h-8 w-8" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-4 mb-2">
+                      <Badge variant="outline" className="text-sm">
+                        Etapa {step.id}
+                      </Badge>
+                      <CheckCircle className="h-5 w-5 text-green-500" />
+                    </div>
+                    <CardTitle className="text-2xl mb-2">{step.title}</CardTitle>
+                    <CardDescription className="text-lg font-medium text-primary mb-4">
+                      {step.subtitle}
+                    </CardDescription>
+                    <p className="text-muted-foreground mb-6">{step.description}</p>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {step.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-2">
+                          <Circle className="h-3 w-3 fill-primary text-primary" />
+                          <span className="text-sm">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 export default InvestigationTrail;

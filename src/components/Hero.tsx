@@ -57,18 +57,18 @@ Automação avançada, IA e inteligência investigativa agora ao seu alcance.</p
                   <label className="block text-sm font-medium text-muted-foreground mb-2">Quantidade de casos</label>
                   <select defaultValue="" className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all">
                     <option value="" disabled>Selecione</option>
-                    <option>1 a 10</option>
-                    <option>11 a 20</option>
-                    <option>Mais de 30</option>
+                    <option>11 a 50</option>
+                    <option>50 a 200</option>
+                    <option>Acima de 200</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">Ticket médio dos casos</label>
                   <select defaultValue="" className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all">
                     <option value="" disabled>Selecione</option>
-                    <option>R$ 10.000,00 a R$ 100.000,00</option>
-                    <option>R$ 100.000,00 a R$ 200.000,00</option>
-                    <option>Acima de R$ 200.000,00</option>
+                    <option>100k a 500k</option>
+                    <option>500k a 1m</option>
+                    <option>Acima de 1m</option>
                   </select>
                 </div>
                 <Button variant="gold" className="w-full mt-6 hover:scale-105 transition-transform" size="lg">Finalizar Cadastro</Button>
