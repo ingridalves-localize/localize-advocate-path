@@ -5,6 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const clientLogos = [
   // First row
@@ -68,6 +69,14 @@ const clientLogos = [
     {
       name: "Bermudes Advogados",
       src: "/lovable-uploads/5ffd75fb-6715-4a70-acb0-bcda5f18f41e.png"
+    },
+    {
+      name: "Banco Pan",
+      src: "/lovable-uploads/c0efb21d-cd33-4649-8e8a-0bd524fd9a99.png"
+    },
+    {
+      name: "Mattos Filho",
+      src: "/lovable-uploads/c5544eec-00a0-4d5c-948b-a18656f5fe5f.png"
     }
   ],
   // Second row
@@ -141,6 +150,13 @@ const ClientLogos = () => {
       {clientLogos.map((row, rowIndex) => (
         <Carousel
           key={rowIndex}
+          plugins={[
+            Autoplay({
+              delay: 3000,
+              stopOnInteraction: false,
+              stopOnMouseEnter: true,
+            }),
+          ]}
           opts={{
             align: "start",
             loop: true,
