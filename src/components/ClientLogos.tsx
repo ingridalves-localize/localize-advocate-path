@@ -46,6 +46,46 @@ const clientLogos = [
   {
     name: "Cargill",
     src: "/lovable-uploads/4f29b527-2cb7-435b-a0cb-04e4c1213945.png"
+  },
+  {
+    name: "Camil",
+    src: "/lovable-uploads/03714bb7-8c55-4db8-9515-b4a386842784.png"
+  },
+  {
+    name: "BV",
+    src: "/lovable-uploads/83f29bf6-962b-4747-80b5-4e00d0e4cada.png"
+  },
+  {
+    name: "BRF",
+    src: "/lovable-uploads/947f954b-197c-4666-b51e-3f0700cb7c19.png"
+  },
+  {
+    name: "Alpargatas",
+    src: "/lovable-uploads/eaeab96b-915b-4415-b993-da5731dba952.png"
+  },
+  {
+    name: "Bermudes Advogados",
+    src: "/lovable-uploads/5ffd75fb-6715-4a70-acb0-bcda5f18f41e.png"
+  },
+  {
+    name: "Energisa",
+    src: "/lovable-uploads/25e31d2f-3571-49ae-9410-c9061fd6bb17.png"
+  },
+  {
+    name: "Saint-Gobain",
+    src: "/lovable-uploads/89b32d82-9fa1-4505-bbab-669a9b391f53.png"
+  },
+  {
+    name: "Pirelli",
+    src: "/lovable-uploads/f30e425f-2eb3-47ea-91c5-98886c14a9b9.png"
+  },
+  {
+    name: "Cyrela",
+    src: "/lovable-uploads/aa86e764-8c8d-4585-89b3-d954881046b7.png"
+  },
+  {
+    name: "Siemens",
+    src: "/lovable-uploads/b77db4a2-8ca7-4114-8e0b-325501d1cb2b.png"
   }
 ];
 
