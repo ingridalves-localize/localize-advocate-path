@@ -15,7 +15,7 @@ const Index = () => {
       <Footer />
       
       {/* Logo Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-navy">
         <div className="container mx-auto px-6 text-center">
           <div className="flex justify-center">
             <img 
