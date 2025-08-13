@@ -4,7 +4,8 @@ import heroBg from "@/assets/hero-investigacao.jpg";
 const Hero = () => {
   return <section className="relative bg-gradient-hero py-20 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <img src={heroBg} alt="Investigação jurídica - lupa e documentos" className="w-full h-full object-cover opacity-20" loading="lazy" />
+        <img src={heroBg} alt="Investigação jurídica - lupa e documentos" className="w-full h-full object-cover opacity-30" loading="lazy" />
+        <div className="absolute inset-0 bg-navy/40"></div>
       </div>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
