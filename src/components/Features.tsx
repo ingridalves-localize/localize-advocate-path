@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Database, Shield, Zap, Target, FileCheck, Users } from "lucide-react";
+import ClientLogos from "./ClientLogos";
 const features = [{
   icon: Database,
   title: "Bases de Dados Integradas",
@@ -33,15 +34,17 @@ const features = [{
   highlight: "24/7"
 }];
 const Features = () => {
-  return <section className="py-20 bg-background">
+  return (
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">+ de 5.000 Clientes acelerados por nossas soluções</h2>
-          
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            + de 5.000 Clientes acelerados por nossas soluções
+          </h2>
+          <ClientLogos />
         </div>
-        
-        
       </div>
-    </section>;
+    </section>
+  );
 };
 export default Features;

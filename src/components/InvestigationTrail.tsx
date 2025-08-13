@@ -35,6 +35,53 @@ const investigationSteps = [{
   color: "from-purple-500 to-purple-600"
 }];
 const InvestigationTrail = () => {
-  return;
+  return (
+    <section className="py-20 bg-muted/50">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Nossa Metodologia de Investigação
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Processo estruturado em 4 etapas para garantir resultados precisos e eficazes
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {investigationSteps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <Card key={step.id} className="relative overflow-hidden hover:shadow-lg transition-shadow">
+                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${step.color}`} />
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <Badge variant="secondary">Etapa {step.id}</Badge>
+                    <Icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-lg">{step.title}</CardTitle>
+                  <CardDescription className="font-medium text-primary">
+                    {step.subtitle}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {step.description}
+                  </p>
+                  <ul className="space-y-2">
+                    {step.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center text-sm">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 };
 export default InvestigationTrail;
