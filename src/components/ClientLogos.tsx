@@ -55,7 +55,7 @@ const clientLogos = [
   src: "/lovable-uploads/c5544eec-00a0-4d5c-948b-a18656f5fe5f.png"
 }, {
   name: "JiveMaud",
-  src: "/lovable-uploads/1918774c-5c01-4bda-8bbf-0c72fa6d8fd6.png"
+  src: "/lovable-uploads/ffe54147-393f-4a47-b50d-b0dbc37844b7.png"
 }],
 // Second row
 [{
