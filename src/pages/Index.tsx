@@ -20,10 +20,10 @@ const Index = () => {
       <Footer />
       
       {/* Logo Section */}
-      <section className="py-12 bg-navy">
+      <section className="py-6 bg-navy">
         <div className="container mx-auto px-6 text-center">
           <div className="flex justify-center">
-            <img src="/lovable-uploads/dda72357-f260-44c1-b1aa-e45ae500ff72.png" alt="Logo" className="w-40 h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 object-contain transition-all duration-300 hover:scale-105" />
+            <img src="/lovable-uploads/dda72357-f260-44c1-b1aa-e45ae500ff72.png" alt="Logo" className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-contain transition-all duration-300 hover:scale-105" />
           </div>
         </div>
       </section>

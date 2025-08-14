@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
 const Footer = () => {
-  return;
+  return null;
 };
 export default Footer;
