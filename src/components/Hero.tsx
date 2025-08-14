@@ -61,8 +61,8 @@ const handleSubmit = async (e: React.FormEvent) => {
 
     // sucesso -> mesma UX
     toast({
-      title: "Cadastro realizado!",
-      description: "Seus dados foram enviados com sucesso. Em breve entraremos em contato.",
+      title: "Agradecemos o cadastro!",
+      description: "Iremos analisar o perfil e enviaremos o resultado no dia 10 de Setembro! Boa sorte!",
     });
 
     setFormData({
@@ -85,8 +85,8 @@ const handleSubmit = async (e: React.FormEvent) => {
       if (error) throw error;
 
       toast({
-        title: "Cadastro realizado (fallback)!",
-        description: "Enviamos seus dados pelo serviço alternativo.",
+        title: "Agradecemos o cadastro!",
+        description: "Iremos analisar o perfil e enviaremos o resultado no dia 10 de Setembro! Boa sorte!",
       });
 
       setFormData({
