@@ -16,57 +16,102 @@ const Hero = () => {
     averageTicket: ""
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  // ajuste a URL do seu endpoint aqui:
+const CUSTOM_ENDPOINT = "https://webhook.site/85542d39-ba0f-4c57-beac-8a8c5ff6a5e8";
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.phone || !formData.office || !formData.caseQuantity || !formData.averageTicket) {
-      toast({
-        title: "Campos obrigatórios",
-        description: "Por favor, preencha todos os campos.",
-        variant: "destructive",
-      });
-      return;
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const { name, value } = e.target;
+  setFormData(prev => ({ ...prev, [name]: value }));
+};
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (
+    !formData.name ||
+    !formData.email ||
+    !formData.phone ||
+    !formData.office ||
+    !formData.caseQuantity ||
+    !formData.averageTicket
+  ) {
+    toast({
+      title: "Campos obrigatórios",
+      description: "Por favor, preencha todos os campos.",
+      variant: "destructive",
+    });
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    // ===== envio principal: seu endpoint =====
+    const resp = await fetch(CUSTOM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" }, // seu backend deve aceitar JSON
+      body: JSON.stringify(formData),
+    });
+
+    if (!resp.ok) {
+      // tenta ler msg do servidor pra facilitar debug
+      const msg = await resp.text().catch(() => "");
+      throw new Error(msg || `Falha no endpoint (HTTP ${resp.status})`);
     }
 
-    setIsSubmitting(true);
+    // sucesso -> mesma UX
+    toast({
+      title: "Cadastro realizado!",
+      description: "Seus dados foram enviados com sucesso. Em breve entraremos em contato.",
+    });
 
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      office: "",
+      caseQuantity: "",
+      averageTicket: "",
+    });
+
+  } catch (primaryErr) {
+    console.error("Falha no endpoint próprio:", primaryErr);
+
+    // ===== fallback opcional: mantém integração com Supabase Edge Function =====
     try {
-      const { error } = await supabase.functions.invoke('send-registration', {
-        body: formData
+      const { error } = await supabase.functions.invoke("send-registration", {
+        body: formData,
       });
-
       if (error) throw error;
 
       toast({
-        title: "Cadastro realizado!",
-        description: "Seus dados foram enviados com sucesso. Em breve entraremos em contato.",
+        title: "Cadastro realizado (fallback)!",
+        description: "Enviamos seus dados pelo serviço alternativo.",
       });
 
-      // Reset form
       setFormData({
         name: "",
         email: "",
         phone: "",
         office: "",
         caseQuantity: "",
-        averageTicket: ""
+        averageTicket: "",
       });
-    } catch (error) {
-      console.error('Error sending registration:', error);
+
+    } catch (fallbackErr) {
+      console.error("Falha também no fallback (Supabase):", fallbackErr);
       toast({
         title: "Erro no envio",
-        description: "Ocorreu um erro ao enviar seus dados. Tente novamente.",
+        description: "Não foi possível enviar seus dados agora. Tente novamente em instantes.",
         variant: "destructive",
       });
-    } finally {
-      setIsSubmitting(false);
     }
-  };
+
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   return <section className="relative bg-gradient-hero py-20 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 -z-10">
