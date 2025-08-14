@@ -17,7 +17,7 @@ const Hero = () => {
   });
 
   // ajuste a URL do seu endpoint aqui:
-const CUSTOM_ENDPOINT = "https://webhook.site/85542d39-ba0f-4c57-beac-8a8c5ff6a5e8";
+const CUSTOM_ENDPOINT = "https://localizedigital.com.br/endpoint.php";
 
 const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
   const { name, value } = e.target;
