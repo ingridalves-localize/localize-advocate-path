@@ -113,14 +113,14 @@ const handleSubmit = async (e: React.FormEvent) => {
 };
 
 
-  return <section className="relative bg-gradient-hero py-20 lg:py-32 overflow-hidden">
+  return <section className="relative bg-gradient-hero py-8 lg:py-12 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <img src={heroBg} alt="Investigação jurídica - lupa e documentos" className="w-full h-full object-cover opacity-30" loading="lazy" />
         <div className="absolute inset-0 bg-navy/40"></div>
       </div>
       <div className="container mx-auto px-6">
         {/* Logo centralizado acima */}
-        <div className="flex justify-center mb-16">
+        <div className="flex justify-center mb-8">
           <img 
             src="/lovable-uploads/29baf211-1690-41fb-a006-0f6619e1ab63.png" 
             alt="Logo Digital - Leão dourado" 
