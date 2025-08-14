@@ -1,7 +1,73 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Target, Zap } from "lucide-react";
 import heroBg from "@/assets/hero-investigacao.jpg";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 const Hero = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    office: "",
+    caseQuantity: "",
+    averageTicket: ""
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.phone || !formData.office || !formData.caseQuantity || !formData.averageTicket) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase.functions.invoke('send-registration', {
+        body: formData
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Cadastro realizado!",
+        description: "Seus dados foram enviados com sucesso. Em breve entraremos em contato.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        office: "",
+        caseQuantity: "",
+        averageTicket: ""
+      });
+    } catch (error) {
+      console.error('Error sending registration:', error);
+      toast({
+        title: "Erro no envio",
+        description: "Ocorreu um erro ao enviar seus dados. Tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return <section className="relative bg-gradient-hero py-20 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <img src={heroBg} alt="Investigação jurídica - lupa e documentos" className="w-full h-full object-cover opacity-30" loading="lazy" />
@@ -36,52 +102,104 @@ Automação avançada, IA e inteligência investigativa agora ao seu alcance.</p
           <div className="relative">
             <div id="cadastro" className="bg-card rounded-2xl shadow-card p-8 backdrop-blur supports-[backdrop-filter]:bg-card/80">
               <h3 className="text-2xl font-bold text-navy mb-6">Cadastre-se para concorrer a uma vaga:</h3>
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-600 mb-2">
                     Nome Completo
                   </label>
-                  <input type="text" className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" placeholder="Seu nome completo" />
+                  <input 
+                    type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" 
+                    placeholder="Seu nome completo"
+                    required 
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-600 mb-2">
                     E-mail Profissional
                   </label>
-                  <input type="email" className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" placeholder="seu@email.com" />
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" 
+                    placeholder="seu@email.com"
+                    required 
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">
                     Telefone
                   </label>
-                  <input type="tel" className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" placeholder="(11) 98765-4321" />
+                  <input 
+                    type="tel" 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" 
+                    placeholder="(11) 98765-4321"
+                    required 
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-600 mb-2">
                     Escritório/Empresa
                   </label>
-                  <input type="text" className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" placeholder="Nome do escritório" />
+                  <input 
+                    type="text" 
+                    name="office"
+                    value={formData.office}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all" 
+                    placeholder="Nome do escritório"
+                    required 
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">Quantidade de casos</label>
-                  <select defaultValue="" className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all">
+                  <select 
+                    name="caseQuantity"
+                    value={formData.caseQuantity}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+                    required
+                  >
                     <option value="" disabled>Selecione</option>
-                    <option>01 a 10</option>
-                    <option>11 a 50</option>
-                    <option>50 a 200</option>
-                    <option>Acima de 200</option>
+                    <option value="01 a 10">01 a 10</option>
+                    <option value="11 a 50">11 a 50</option>
+                    <option value="50 a 200">50 a 200</option>
+                    <option value="Acima de 200">Acima de 200</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-muted-foreground mb-2">Ticket médio dos casos</label>
-                  <select defaultValue="" className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all">
+                  <select 
+                    name="averageTicket"
+                    value={formData.averageTicket}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-input bg-background text-foreground rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+                    required
+                  >
                     <option value="" disabled>Selecione</option>
-                    <option>10 Mil a 100 Mil</option>
-                    <option>100 Mil a 500 Mil</option>
-                    <option>500 Mil a 1 Milhão</option>
-                    <option>Acima de 1 Milhão</option>
+                    <option value="10 Mil a 100 Mil">10 Mil a 100 Mil</option>
+                    <option value="100 Mil a 500 Mil">100 Mil a 500 Mil</option>
+                    <option value="500 Mil a 1 Milhão">500 Mil a 1 Milhão</option>
+                    <option value="Acima de 1 Milhão">Acima de 1 Milhão</option>
                   </select>
                 </div>
-                <Button variant="gold" className="w-full mt-6 hover:scale-105 transition-transform" size="lg">Finalizar Cadastro</Button>
+                <Button 
+                  type="submit"
+                  variant="gold" 
+                  className="w-full mt-6 hover:scale-105 transition-transform" 
+                  size="lg"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Enviando..." : "Finalizar Cadastro"}
+                </Button>
               </form>
               <p className="text-xs text-gray-500 mt-4 text-center">
                 Seus dados estão protegidos e serão utilizados apenas para contato comercial.
