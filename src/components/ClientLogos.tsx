@@ -53,6 +53,9 @@ const clientLogos = [
 }, {
   name: "Mattos Filho",
   src: "/lovable-uploads/c5544eec-00a0-4d5c-948b-a18656f5fe5f.png"
+}, {
+  name: "Novo Cliente",
+  src: "/lovable-uploads/10a14bba-6a29-4cc4-b844-9d9a8a828cd1.png"
 }],
 // Second row
 [{
