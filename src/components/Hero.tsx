@@ -4,6 +4,7 @@ import heroBg from "@/assets/hero-investigacao.jpg";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+
 const Hero = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,9 +16,6 @@ const Hero = () => {
     caseQuantity: "",
     averageTicket: ""
   });
-
-  // ajuste a URL do seu endpoint aqui:
-const CUSTOM_ENDPOINT = "https://localizedigital.com.br/endpoint.php";
 
 const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
   const { name, value } = e.target;
@@ -46,20 +44,20 @@ const handleSubmit = async (e: React.FormEvent) => {
   setIsSubmitting(true);
 
   try {
-    // ===== envio principal: seu endpoint =====
-    const resp = await fetch(CUSTOM_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" }, // seu backend deve aceitar JSON
-      body: JSON.stringify(formData),
-    });
+    // Salvar dados no Supabase
+    const { error } = await supabase
+      .from('contacts')
+      .insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        office: formData.office,
+        case_quantity: formData.caseQuantity,
+        average_ticket: formData.averageTicket
+      });
 
-    if (!resp.ok) {
-      // tenta ler msg do servidor pra facilitar debug
-      const msg = await resp.text().catch(() => "");
-      throw new Error(msg || `Falha no endpoint (HTTP ${resp.status})`);
-    }
+    if (error) throw error;
 
-    // sucesso -> mesma UX
     toast({
       title: "Agradecemos o cadastro!",
       description: "Iremos analisar o perfil e enviaremos o resultado no dia 10 de Setembro! Boa sorte!",
@@ -74,46 +72,20 @@ const handleSubmit = async (e: React.FormEvent) => {
       averageTicket: "",
     });
 
-  } catch (primaryErr) {
-    console.error("Falha no endpoint próprio:", primaryErr);
-
-    // ===== fallback opcional: mantém integração com Supabase Edge Function =====
-    try {
-      const { error } = await supabase.functions.invoke("send-registration", {
-        body: formData,
-      });
-      if (error) throw error;
-
-      toast({
-        title: "Agradecemos o cadastro!",
-        description: "Iremos analisar o perfil e enviaremos o resultado no dia 10 de Setembro! Boa sorte!",
-      });
-
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        office: "",
-        caseQuantity: "",
-        averageTicket: "",
-      });
-
-    } catch (fallbackErr) {
-      console.error("Falha também no fallback (Supabase):", fallbackErr);
-      toast({
-        title: "Erro no envio",
-        description: "Não foi possível enviar seus dados agora. Tente novamente em instantes.",
-        variant: "destructive",
-      });
-    }
-
+  } catch (error) {
+    console.error("Erro ao salvar contato:", error);
+    toast({
+      title: "Erro no envio",
+      description: "Não foi possível enviar seus dados agora. Tente novamente em instantes.",
+      variant: "destructive",
+    });
   } finally {
     setIsSubmitting(false);
   }
 };
 
-
-  return <section className="relative bg-gradient-hero py-2 lg:py-3 overflow-hidden">
+  return (
+    <section className="relative bg-gradient-hero py-2 lg:py-3 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <img src={heroBg} alt="Investigação jurídica - lupa e documentos" className="w-full h-full object-cover opacity-30" loading="lazy" />
         <div className="absolute inset-0 bg-navy/40"></div>
@@ -256,6 +228,8 @@ Automação avançada, IA e inteligência investigativa agora ao seu alcance.</p
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
