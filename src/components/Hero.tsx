@@ -44,19 +44,24 @@ const handleSubmit = async (e: React.FormEvent) => {
   setIsSubmitting(true);
 
   try {
-    // Salvar dados no Supabase
-    const { error } = await supabase
-      .from('contacts')
-      .insert({
+    // Usar a edge function para enviar dados
+    const { data, error } = await supabase.functions.invoke('send-to-endpoint', {
+      body: {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         office: formData.office,
-        case_quantity: formData.caseQuantity,
-        average_ticket: formData.averageTicket
-      });
+        caseQuantity: formData.caseQuantity,
+        averageTicket: formData.averageTicket
+      }
+    });
 
-    if (error) throw error;
+    if (error) {
+      console.error('Erro na edge function:', error);
+      throw error;
+    }
+
+    console.log('Resposta da edge function:', data);
 
     toast({
       title: "Agradecemos o cadastro!",
